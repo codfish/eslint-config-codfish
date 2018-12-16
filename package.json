@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-codfish",
-  "version": "1.0.0",
+  "version": "0.0.0-semantically-released",
   "description": "ESLint configuration extending airbnb, assuming prettier is run first.",
   "main": "index.js",
   "scripts": {
