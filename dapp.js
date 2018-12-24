@@ -1,13 +1,10 @@
-/**
- * Solidity contract tests.
- */
 module.exports = {
   rules: {
     'import/no-unresolved': ['error', { ignore: ['^[^.]+', '/contracts/'] }],
   },
   overrides: [
     {
-      files: ['(contracts|truffle)/**/*.js'],
+      files: ['(contracts|truffle|migrations)/**/*.js'],
       globals: {
         artifacts: true,
         assert: true,
