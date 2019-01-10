@@ -6,7 +6,9 @@
   "scripts": {
     "fix": "npm run format && npm run lint -- --fix",
     "format": "prettier --write \"**/*.{js,json,css,scss,md}\"",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "lint:commit": "commitlint .",
+    "lint:commit:ci": "commitlint-travis"
   },
   "repository": {
     "type": "git",
