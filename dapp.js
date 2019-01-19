@@ -4,7 +4,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['(contracts|truffle|migrations)/**/*.js'],
+      files: ['**/contracts/**/*.js', '**/migrations/**/*.js', '**/truffle/**/*.js'],
       globals: {
         artifacts: true,
         assert: true,
