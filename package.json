@@ -42,6 +42,7 @@
   "dependencies": {
     "arrify": "^1.0.1",
     "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-kentcdodds": "^14.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jest": "^22.1.2",
     "eslint-plugin-jsx-a11y": "^6.1.1",
