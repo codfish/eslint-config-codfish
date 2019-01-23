@@ -1,11 +1,11 @@
 {
   "name": "eslint-config-codfish",
   "version": "0.0.0-semantically-released",
-  "description": "ESLint configuration extending airbnb, assuming prettier is run first.",
+  "description": "ESLint configuration extending airbnb & prettier.",
   "main": "index.js",
   "scripts": {
     "fix": "npm run format && npm run lint -- --fix",
-    "format": "prettier --write \"**/*.{js,json,css,scss,md}\"",
+    "format": "prettier --write \"**/*.{json,css,scss,md}\"",
     "lint": "eslint .",
     "lint:commit": "commitlint .",
     "lint:commit:ci": "commitlint-travis"
@@ -19,13 +19,10 @@
     "eslintconfig",
     "config",
     "airbnb",
+    "codfish",
+    "prettier",
     "javascript",
-    "styleguide",
-    "es2015",
-    "es2016",
-    "es2017",
-    "es2018",
-    "es2019"
+    "styleguide"
   ],
   "author": "Chris O'Donnell <dev@codfish.io> (http://codfish.io)",
   "license": "MIT",
@@ -34,7 +31,8 @@
   },
   "homepage": "https://github.com/codfish/eslint-config-codfish#readme",
   "peerDependencies": {
-    "eslint": "^4.19.1 || ^5.3.0"
+    "eslint": "^4.19.1 || ^5.3.0",
+    "prettier": ">= 1.13.0"
   },
   "engines": {
     "node": ">= 4"
@@ -42,9 +40,11 @@
   "dependencies": {
     "arrify": "^1.0.1",
     "eslint-config-airbnb": "^17.1.0",
-    "eslint-plugin-import": "^2.14.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.15.0",
     "eslint-plugin-jest": "^22.1.2",
     "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.11.0",
     "lodash.has": "^4.5.2",
     "read-pkg-up": "^4.0.0"
@@ -54,8 +54,6 @@
     "@commitlint/config-conventional": "^7.1.2",
     "@commitlint/travis-cli": "^7.2.1",
     "eslint": "^5.10.0",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0",
     "husky": "^1.2.1",
     "lint-staged": "^8.1.0",
     "prettier": "^1.15.3"

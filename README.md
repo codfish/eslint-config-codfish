@@ -1,24 +1,22 @@
 # eslint-config-codfish [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
-ESLint configuration that extends airbnb to not conflict with prettier. Does _NOT_ use `eslint-config-prettier` to shut off conflicting rules. I take a different approach than most in that regard.
+Opinionated ESLint configuration that extends airbnb to not conflict with prettier.
 
-This config is meant to be used assuming `prettier --write` runs first, then `eslint --fix` after that. While there's obvious pros to being able to run this in a single atomic command, it doesn't help me achieve my ultimate goal, which is to get as close to airbnb as possible. The main idea here is to leverage the power of prettier first, and then run eslint using the airbnb styleguide as closely as possible, with NO opinionated eslint overrides, only those necessary to get it to play nice with prettier.
+## Features
 
-The [prettier-eslint tool](https://github.com/prettier/prettier-eslint) seems like an ideal solution, however it's not well maintained anymore and it doesn't seem to work as expected https://github.com/prettier/prettier-eslint/issues/139.
-
-#### What you need to know
-
-- You should run `prettier --write` first, then `eslint --fix` (see [recommended setup](https://gist.github.com/codfish/91ef26f3a56a5c5ca0912aa8c0c5c020))
-- Assumes [Jest](https://jestjs.io/) is being used.
-- Helpful opt-in config for apps using Docker
-- Helpful opt-in config for dApp's
+- Uses [Airbnb's config](https://github.com/airbnb/javascript/tree/master/packages) as the foundation.
+- Leverages [prettier's eslint plugin](https://github.com/prettier/eslint-plugin-prettier), which run's prettier within ESLint, and turns off rules that may conflict with Airbnb's config.
+- Supports both React & non-React applications dynamically based on your project's dependencies.
+- Extends [Kent C Dodd's Jest config](https://github.com/kentcdodds/eslint-config-kentcdodds/blob/master/jest.js) dynamically based on your project's dependencies.
+- Helpful opt-in config for apps using Docker.
+- Helpful opt-in config for dApp's.
 
 ## Install
 
 Install dependencies:
 
 ```sh
-npm install --save-dev --exact prettier
+npm install --save-dev --save-exact prettier
 npx install-peerdeps --dev eslint-config-codfish
 ```
 
@@ -26,7 +24,7 @@ npx install-peerdeps --dev eslint-config-codfish
 
 [My recommended setup](https://gist.github.com/codfish/91ef26f3a56a5c5ca0912aa8c0c5c020) includes tools like husky, lint-staged & commitlint in addition to prettier & eslint. However that's optional.
 
-##### .eslintrc.js
+### .eslintrc.js
 
 ```js
 module.exports = {
@@ -37,7 +35,7 @@ module.exports = {
 };
 ```
 
-##### .prettierrc.js
+### .prettierrc.js
 
 ```js
 module.exports = {
@@ -47,13 +45,13 @@ module.exports = {
 };
 ```
 
-##### .package.json
+### .package.json
 
 ```json
 {
   "scripts": {
     "fix": "npm run format && npm run lint -- --fix",
-    "format": "prettier --write \"**/*.{js,json,css,scss,html}\"",
+    "format": "prettier --write \"**/*.{json,css,scss,html}\"",
     "lint": "eslint ."
   }
 }
@@ -61,7 +59,7 @@ module.exports = {
 
 Run `npm run fix` from a git hook.
 
-Run `npm run fix && git diff --quiet || exit 1` in a ci/cd environment.
+Run `npm run lint` in a ci/cd environment.
 
 ### With Docker
 
