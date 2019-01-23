@@ -5,7 +5,8 @@ module.exports = {
     // Airbnb config as the foundation
     ifAnyDep('react', 'airbnb', 'airbnb-base'),
 
-    './jest.js',
+    // Kent C. Dodds' Jest config
+    ifAnyDep('jest', 'kentcdodds/jest'),
 
     // Prettier plugin includes config, plugin & rules declaration
     'plugin:prettier/recommended',
