@@ -13,7 +13,6 @@ install: npm install
 script:
   - npm run lint:commit:ci
   - npm run lint
-  - npm run fix && git diff --quiet || exit 1
 
 after_success:
   - npx -p semantic-release@7 -c "semantic-release pre && npm publish && semantic-release post"
