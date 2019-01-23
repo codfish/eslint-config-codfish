@@ -5,7 +5,7 @@ Opinionated ESLint configuration that extends airbnb to not conflict with pretti
 ## Features
 
 - Uses [Airbnb's config](https://github.com/airbnb/javascript/tree/master/packages) as the foundation.
-- Leverages [prettier's eslint plugin](https://github.com/prettier/eslint-plugin-prettier), which run's prettier within ESLint, and turns off rules that may conflict with Airbnb's config.
+- Leverages [prettier's eslint plugin](https://github.com/prettier/eslint-plugin-prettier), which run's prettier within ESLint, and overrides ESLint/Airbnb rules that may conflict with Prettier.
 - Supports both React & non-React applications dynamically based on your project's dependencies.
 - Extends [Kent C Dodd's Jest config](https://github.com/kentcdodds/eslint-config-kentcdodds/blob/master/jest.js) dynamically based on your project's dependencies.
 - Helpful opt-in config for apps using Docker.
