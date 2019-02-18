@@ -33,7 +33,7 @@ module.exports = {
   // sane overrides for test files
   overrides: [
     {
-      files: ['**/__tests__/**/*.js', '**/test/**/*.js', '*.test.js', '*.spec.js'],
+      files: ['**/__tests__/**/*.js', '**/test/**/*.js', '*.test.js', '*.spec.js', 'setupTests.js'],
       env: {
         mocha: true,
         jest: true,
