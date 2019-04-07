@@ -35,6 +35,7 @@ module.exports = {
     {
       files: [
         '**/__tests__/**/*.js',
+        '**/__fixtures__/**/*.js',
         '**/test/**/*.js',
         '*.test.js',
         '*.spec.js',
