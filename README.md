@@ -16,7 +16,6 @@ Opinionated ESLint configuration that extends airbnb to not conflict with pretti
 Install dependencies:
 
 ```sh
-npm install --save-dev --save-exact prettier
 npx install-peerdeps --dev eslint-config-codfish
 ```
 
