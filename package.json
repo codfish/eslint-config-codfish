@@ -4,11 +4,8 @@
   "description": "ESLint configuration extending airbnb & prettier.",
   "main": "index.js",
   "scripts": {
-    "fix": "npm run format && npm run lint -- --fix",
-    "format": "prettier --write \"**/*.{json,css,scss,md}\"",
-    "lint": "eslint .",
-    "lint:commit": "commitlint .",
-    "lint:commit:ci": "commitlint-travis"
+    "format": "prettier --write \"**/*.{json,css,scss,md}\" && npm run lint -- --fix",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -31,11 +28,13 @@
   },
   "homepage": "https://github.com/codfish/eslint-config-codfish#readme",
   "peerDependencies": {
-    "eslint": "^4.19.1 || ^5.15.2",
-    "prettier": ">= 1.13.0 || ^1.16.4"
+    "eslint": ">= 5",
+    "prettier": ">= 1"
   },
   "engines": {
-    "node": ">= 4"
+    "node": ">= 10",
+    "npm": ">= 6",
+    "yarn": ">= 1"
   },
   "dependencies": {
     "arrify": "^2.0.1",
@@ -52,10 +51,21 @@
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
-    "@commitlint/travis-cli": "^8.0.0",
     "eslint": "^6.4.0",
     "husky": "^3.0.5",
     "lint-staged": "^9.2.5",
     "prettier": "^1.18.2"
+  },
+  "eslintConfig": {
+    "extends": [
+      "./index.js"
+    ],
+    "root": true
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint --env HUSKY_GIT_PARAMS"
+    }
   }
 }
