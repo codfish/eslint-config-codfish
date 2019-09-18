@@ -1,4 +1,16 @@
-const { ifAnyDep } = require('./utils');
+const { ifAnyDep, ifFile } = require('./utils');
+
+let rules = {};
+
+const usesDocker = ifFile('Dockerfile', true, false) || ifFile('docker-compose.yml', true, false);
+if (usesDocker) {
+  // should use this rule when using docker. node_modules should be installed
+  // and present in your containers, but not needed/mounted on the host
+  // machine. eslint will complain that it can't find node_modules imports.
+  // this will ignore the rule for imports that don't start with a period.
+  // Pros (remove annoying false positives) outweigh cons IMO.
+  rules = { ...rules, 'import/no-unresolved': ['error', { ignore: ['^[^.]+'] }] };
+}
 
 module.exports = {
   extends: [
@@ -21,6 +33,8 @@ module.exports = {
     // in this scenario.
     // @see https://github.com/airbnb/javascript/pull/985#issuecomment-239145468
     'react/jsx-filename-extension': 'off',
+
+    ...rules,
   },
 
   env: {

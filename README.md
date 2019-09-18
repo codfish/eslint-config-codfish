@@ -18,7 +18,9 @@
 - Extends
   [Kent C Dodd's Jest config](https://github.com/kentcdodds/eslint-config-kentcdodds/blob/master/jest.js)
   dynamically based on your project's dependencies.
-- Helpful opt-in config for apps using Docker.
+- Enforces js instead of jsx files.
+- Turns off `import/no-unresolved` errors for node modules in projects using Docker, to avoid false
+  positives.
 - Helpful opt-in config for dApp's.
 
 ## Usage
@@ -57,26 +59,6 @@ module.exports = {
   bracketSpacing: true,
   jsxBracketSameLine: false,
   proseWrap: 'always',
-};
-```
-
-### With Docker
-
-Using Docker? `node_modules` should be installed and present in your containers, but not
-needed/mounted on the host machine. `ESLint` will complain about this however because it won't be
-able to resolve the dependencies locally. Pull in the docker ruleset to adjust some rules to prevent
-these types of failures.
-
-**NOTE:** All this config basically does is ignore the
-[`import/no-unresolved`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-unresolved.md)
-rule for imports that don't start with a period.
-
-```js
-module.exports = {
-  extends: ['codfish', 'codfish/docker'],
-  rules: {
-    // your overrides here
-  },
 };
 ```
 

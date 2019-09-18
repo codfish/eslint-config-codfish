@@ -59,8 +59,7 @@
   "eslintConfig": {
     "extends": [
       "./index.js"
-    ],
-    "root": true
+    ]
   },
   "husky": {
     "hooks": {
