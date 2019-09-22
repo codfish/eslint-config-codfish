@@ -48,8 +48,8 @@ module.exports = {
     es6: true,
   },
 
-  // sane overrides for test files
   overrides: [
+    // sane overrides for test files
     {
       files: [
         '**/__tests__/**/*.js',
@@ -57,6 +57,8 @@ module.exports = {
         '**/test/**/*.js',
         '*.test.js',
         '*.spec.js',
+        'jest.setup.js',
+        'jest.config.js',
         'setupTests.js',
         'testUtils.js',
       ],
@@ -68,6 +70,25 @@ module.exports = {
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
         'no-unused-expressions': 'off',
+      },
+    },
+    // sane overrides for lint files
+    {
+      files: [
+        '.eslintrc.js',
+        'eslint.config.js',
+        '.prettierrc.js',
+        'prettier.config.js',
+        '.commitlintrc.js',
+        'commitlint.config.js',
+        '.huskyrc.js',
+        '.lintstagedrc.js',
+        'lint-staged.config.js',
+      ],
+      rules: {
+        // linting only runs in non-prod environments so we should be able to
+        // import dev dependencies
+        'import/no-extraneous-dependencies': 'off',
       },
     },
   ],
