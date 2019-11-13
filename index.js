@@ -48,6 +48,7 @@ module.exports = {
     // sane overrides for test files
     {
       files: [
+        '**/__mocks__/**/*.js',
         '**/__tests__/**/*.js',
         '**/__fixtures__/**/*.js',
         '**/test/**/*.js',
