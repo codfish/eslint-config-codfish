@@ -28,10 +28,10 @@
 Install by running:
 
 ```sh
-npm install --save-dev prettier eslint eslint-config-kentcdodds
+npx install-peerdeps eslint-config-codfish
 ```
 
-[My recommended setup](https://gist.github.com/codfish/91ef26f3a56a5c5ca0912aa8c0c5c020) includes
+[My preferred setup](https://gist.github.com/codfish/91ef26f3a56a5c5ca0912aa8c0c5c020) includes
 tools like husky, lint-staged & commitlint in addition to prettier & eslint. However that's
 optional.
 
