@@ -56,7 +56,7 @@
     "eslint": "^6.4.0",
     "husky": "^3.0.5",
     "lint-staged": "^9.2.5",
-    "prettier": "^1.18.2"
+    "prettier": "^2.0.2"
   },
   "eslintConfig": {
     "extends": [
