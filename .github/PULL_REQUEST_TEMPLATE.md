@@ -1,12 +1,6 @@
-### Related Issue
-
-<!-- Please link to the github issue here. -->
-
-https://github.com/codfish/eslint-config-codfish/issues/**NUMBER**
-
-### Description
-
 <!-- Brief description of the code changes. Add supporting screenshots & videos where applicable. -->
+
+**Related Issue**: https://github.com/codfish/eslint-config-codfish/issues/**NUMBER**
 
 ### Checklist
 

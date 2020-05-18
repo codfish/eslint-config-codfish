@@ -1,13 +1,13 @@
 name: Validate Code
 
-on: push
+on: pull_request
 
 jobs:
   validate:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v1
 
       - uses: actions/setup-node@v1
         with:
@@ -15,6 +15,10 @@ jobs:
 
       - name: install dependencies
         run: npm install --no-save
+
+      - name: lint commits
+        run:
+          npx commitlint --from="origin/${{ github.base_ref }}" --to="origin/${{ github.head_ref }}"
 
       - name: lint js
         run: npm run lint
