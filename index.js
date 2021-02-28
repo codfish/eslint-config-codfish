@@ -16,19 +16,17 @@ module.exports = {
     'plugin:prettier/recommended',
   ].filter(Boolean),
 
-  parser: '@babel/eslint-parser',
+  parser: 'babel-eslint',
 
   parserOptions: {
-    requireConfigFile: false,
-    allowImportExportEverywhere: true,
-    ecmaVersion: 2021,
+    ecmaVersion: 2019,
     sourceType: 'module',
     ecmaFeatures: {
       jsx: true,
     },
   },
 
-  plugins: ['@babel'],
+  plugins: ['babel'],
 
   rules: {
     ...reactRules,
