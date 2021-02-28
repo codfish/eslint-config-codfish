@@ -14,9 +14,6 @@ module.exports = {
 
     // Prettier plugin includes config, plugin & rules declaration
     'plugin:prettier/recommended',
-
-    // Prettier react rules
-    ifAnyDep('react', 'prettier/react'),
   ].filter(Boolean),
 
   parser: 'babel-eslint',
