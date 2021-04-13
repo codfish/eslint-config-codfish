@@ -43,7 +43,7 @@
     "arrify": "^2.0.1",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-config-kentcdodds": "^17.3.2",
+    "eslint-config-kentcdodds": "^18.0.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
