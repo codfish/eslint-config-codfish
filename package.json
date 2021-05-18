@@ -30,7 +30,13 @@
   "peerDependencies": {
     "@babel/core": "^7.13.8",
     "eslint": "^7.5.0",
-    "prettier": "^2.0.0"
+    "prettier": "^2.0.0",
+    "typescript": "^4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
   },
   "engines": {
     "node": ">=12.0.0",
@@ -40,9 +46,12 @@
   "dependencies": {
     "@babel/eslint-parser": "^7.13.14",
     "@babel/eslint-plugin": "^7.13.16",
+    "@typescript-eslint/eslint-plugin": "^4.23.0",
+    "@typescript-eslint/parser": "^4.23.0",
     "arrify": "^2.0.1",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-airbnb-typescript": "^12.3.1",
     "eslint-config-kentcdodds": "^18.0.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.22.1",
@@ -59,7 +68,8 @@
     "eslint": "^7.25.0",
     "husky": "^6.0.0",
     "lint-staged": "^10.5.4",
-    "prettier": "^2.2.1"
+    "prettier": "^2.2.1",
+    "typescript": "^4.3.2"
   },
   "eslintConfig": {
     "extends": [
