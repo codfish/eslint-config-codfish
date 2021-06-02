@@ -11,7 +11,7 @@ jobs:
 
       - uses: actions/setup-node@v1
         with:
-          node-version: 12.x
+          node-version: 14.x
 
       - name: install dependencies
         run: npm install --no-save
@@ -22,3 +22,37 @@ jobs:
 
       - name: lint js
         run: npm run lint
+
+  pr-version:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: publish to npm
+        id: pr-publish
+        run: |
+          version="0.0.0-PR-${PR}--$(echo ${SHA} | cut -c -7)"
+          npm version $version --no-git-tag-version
+          npm publish --access public --tag pr
+          echo "::set-output name=pr_version::$version"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          PR: ${{ github.event.number }}
+          SHA: ${{ github.event.pull_request.head.sha }}
+
+      - uses: actions/github-script@v3
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '🚀 PR version published: `${{ steps.pr-publish.outputs.pr_version }}`'
+            })
