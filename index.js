@@ -1,8 +1,17 @@
-const { ifAnyDep, ifFile } = require('./utils');
+const fs = require('fs');
+const path = require('path');
+const { ifAnyDep } = require('./utils');
 const reactRules = require('./rules/react');
 const babelRules = require('./rules/babel');
+const dockerRules = require('./rules/docker');
+const typescriptRules = require('./rules/typescript');
 
-const usesDocker = ifFile('Dockerfile', true, false) || ifFile('docker-compose.yml', true, false);
+// eslint-disable-next-line no-nested-ternary
+const tsConfig = fs.existsSync('tsconfig.json')
+  ? path.resolve('tsconfig.json')
+  : fs.existsSync('types/tsconfig.json')
+  ? path.resolve('types/tsconfig.json')
+  : undefined;
 
 module.exports = {
   extends: [
@@ -33,7 +42,7 @@ module.exports = {
   rules: {
     ...reactRules,
     ...babelRules,
-    ...(usesDocker && { 'import/no-unresolved': ['error', { ignore: ['^[^.]+'] }] }),
+    ...dockerRules,
   },
 
   env: {
@@ -44,6 +53,29 @@ module.exports = {
   },
 
   overrides: [
+    // overrides for TypeScript files
+    {
+      files: ['**/*.ts?(x)'],
+      extends: [
+        'plugin:@typescript-eslint/recommended',
+        'plugin:import/typescript',
+        ifAnyDep('react', 'airbnb-typescript', 'airbnb-typescript/base'),
+        'plugin:prettier/recommended',
+      ],
+      parser: '@typescript-eslint/parser',
+      parserOptions: {
+        project: tsConfig,
+      },
+      plugins: ['@typescript-eslint'],
+      rules: {
+        ...typescriptRules,
+        // redeclaring rules overrides cause `airbnb-typescript` re-extends from
+        // `airbnb`'s config, effectively overriding the overrides
+        ...reactRules,
+        ...dockerRules,
+      },
+    },
+
     // sane overrides for test files
     {
       files: [
@@ -68,7 +100,8 @@ module.exports = {
         'no-unused-expressions': 'off',
       },
     },
-    // sane overrides for lint files
+
+    // sane overrides for dot files
     {
       files: [
         '.eslintrc.js',
