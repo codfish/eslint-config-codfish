@@ -59,10 +59,13 @@ module.exports = {
       extends: [
         'plugin:import/typescript',
         ifAnyDep('react', 'airbnb-typescript', 'airbnb-typescript/base'),
+        // re-extending from prettier to ensure it's always the last ruleset
         'plugin:prettier/recommended',
       ],
       parser: '@typescript-eslint/parser',
       parserOptions: {
+        ecmaVersion: 2021,
+        sourceType: 'module',
         project: tsConfig,
       },
       plugins: ['@typescript-eslint'],
