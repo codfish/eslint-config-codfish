@@ -57,7 +57,6 @@ module.exports = {
     {
       files: ['**/*.ts?(x)'],
       extends: [
-        'plugin:@typescript-eslint/recommended',
         'plugin:import/typescript',
         ifAnyDep('react', 'airbnb-typescript', 'airbnb-typescript/base'),
         'plugin:prettier/recommended',
