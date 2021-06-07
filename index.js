@@ -85,6 +85,7 @@ module.exports = {
         '**/__tests__/**/*.js',
         '**/__fixtures__/**/*.js',
         '**/test/**/*.js',
+        '**/tests/**/*.js',
         '*.test.js',
         '*.spec.js',
         'jest.setup.js',
