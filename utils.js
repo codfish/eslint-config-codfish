@@ -3,7 +3,7 @@
  *
  * Credit: Kent C. Dodds
  *
- * @see https://github.com/kentcdodds/kcd-scripts/blob/master/src/utils.js
+ * @see https://github.com/kentcdodds/kcd-scripts/blob/main/src/utils.js
  */
 const fs = require('fs');
 const path = require('path');

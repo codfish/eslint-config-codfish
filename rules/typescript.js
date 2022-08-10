@@ -8,7 +8,7 @@ module.exports = {
   '@typescript-eslint/explicit-module-boundary-types': 'off',
 
   // TypeScripts recommended config
-  // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/src/configs/eslint-recommended.ts
+  // https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/src/configs/eslint-recommended.ts
   'constructor-super': 'off', // ts(2335) & ts(2377)
   'getter-return': 'off', // ts(2378)
   'no-const-assign': 'off', // ts(2588)
@@ -30,7 +30,7 @@ module.exports = {
   'prefer-rest-params': 'error', // ts provides better types with rest args over arguments
   'prefer-spread': 'error', // ts transpiles spread to apply, so no need for manual apply
   'valid-typeof': 'off', // ts(2367)
-  // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/src/configs/recommended.ts
+  // https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/src/configs/recommended.ts
   '@typescript-eslint/adjacent-overload-signatures': 'error',
   '@typescript-eslint/ban-ts-comment': 'error',
   '@typescript-eslint/ban-types': 'error',

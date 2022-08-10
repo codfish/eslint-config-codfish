@@ -18,7 +18,7 @@
 - Supports linting TypeScript (`.ts` and `.tsx` files) dynamically based on your project's
   dependencies.
 - Extends
-  [Kent C Dodd's Jest config](https://github.com/kentcdodds/eslint-config-kentcdodds/blob/master/jest.js)
+  [Kent C Dodd's Jest config](https://github.com/kentcdodds/eslint-config-kentcdodds/blob/main/jest.js)
   dynamically based on your project's dependencies.
 - Enforces js instead of jsx files.
 - Turns off `import/no-unresolved` errors for node modules in projects using Docker, to avoid false
