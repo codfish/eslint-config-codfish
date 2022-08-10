@@ -15,7 +15,8 @@
 - Leverages [prettier's eslint plugin](https://github.com/prettier/eslint-plugin-prettier), which
   run's prettier within ESLint, and overrides ESLint/Airbnb rules that may conflict with Prettier.
 - Supports both React & non-React applications dynamically based on your project's dependencies.
-- Supports linting TypeScript (`.ts` and `.tsx` files) dynamically based on your project's dependencies.
+- Supports linting TypeScript (`.ts` and `.tsx` files) dynamically based on your project's
+  dependencies.
 - Extends
   [Kent C Dodd's Jest config](https://github.com/kentcdodds/eslint-config-kentcdodds/blob/master/jest.js)
   dynamically based on your project's dependencies.
