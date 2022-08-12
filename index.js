@@ -30,7 +30,7 @@ module.exports = {
   parserOptions: {
     requireConfigFile: false,
     allowImportExportEverywhere: true,
-    ecmaVersion: 2021,
+    ecmaVersion: 2022,
     sourceType: 'module',
     ecmaFeatures: {
       jsx: true,
@@ -43,6 +43,10 @@ module.exports = {
     ...reactRules,
     ...babelRules,
     ...dockerRules,
+
+    // turn import/extensions off to support esmodules
+    // https://nodejs.org/api/esm.html#mandatory-file-extensions
+    'import/extensions': 'off',
   },
 
   env: {
